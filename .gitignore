@@ -1,5 +1,22 @@
-/reports/*
-/venv
-/allure-report/*
-*/__pycache__/*
-*.log
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Allure
+allure-report/
+allure-results/
+reports/*.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
