@@ -1,0 +1,5 @@
+/reports/*
+/venv
+/allure-report/*
+*/__pycache__/*
+*.log

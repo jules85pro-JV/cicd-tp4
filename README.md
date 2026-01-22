@@ -369,6 +369,8 @@ services:
   prometheus:
     image: prom/prometheus:latest
     container_name: prometheus
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     ports:
       - "9090:9090"
     volumes:
@@ -553,7 +555,7 @@ Créer des dashboards Grafana pour visualiser les métriques de tests.
 - **Legend:** `{{status}}`
 
 **Panneau 3 : Durée totale des tests**
-- **Query:** `sum(tests_duration_seconds)`
+- **Query:** `sum(tests_duration_seconds_bucket)`
 - **Visualization:** Time series
 - **Title:** "Total Test Duration (seconds)"
 
