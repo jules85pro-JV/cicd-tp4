@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build-linux:
+  Send_allure_Report_Node_js_25_x:
     runs-on: ubuntu-latest
 
     steps:
@@ -44,5 +44,5 @@ jobs:
     - name: Upload Allure report artifact
       uses: actions/upload-artifact@v4
       with:
-        name: allure-report-25.x
+        name: allure-report-25-x
         path: ./allure-report
