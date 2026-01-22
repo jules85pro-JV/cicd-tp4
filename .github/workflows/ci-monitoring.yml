@@ -9,20 +9,17 @@ on:
 jobs:
   build-linux:
     runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 5
-      matrix:
-        node-version: [25.x]
+
     steps:
     - uses: actions/checkout@v4
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
         python-version: 3.12
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js 25.x
       uses: actions/setup-node@v4
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 25.x
     - name: Install allure
       run: npm install -g allure-commandline
     - name: Install Python dependencies
