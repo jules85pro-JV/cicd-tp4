@@ -31,14 +31,8 @@ jobs:
         source venv/bin/activate 
         pip install -r requirements.txt
         pip install pytest-allure-adaptor
-
-    - name: install Pytest
-      run: |
-        source venv/bin/activate 
-        pip install pytest
-    - name : set Pytest as available command
-      run: |
-        echo "source venv/bin/activate" >> $GITHUB_ENV
+        
+    - uses: pavelzw/pytest-action@v2
     - name: Generate Allure report
       run: |
         pytest tests/ -v --alluredir=reports
