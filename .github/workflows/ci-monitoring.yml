@@ -30,7 +30,12 @@ jobs:
         python -m venv venv
         source venv/bin/activate 
         pip install -r requirements.txt
+        pip install pytest-allure-adaptor
 
+    - name: install Pytest
+      run: |
+        source venv/bin/activate 
+        pip install pytest
     - name: Generate Allure report
       run: |
         pytest tests/ -v --alluredir=reports
