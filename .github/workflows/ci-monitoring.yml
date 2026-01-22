@@ -2,9 +2,9 @@ name: CI - Tests avec Allure et Monitoring
 
 on:
   push:
-    branches: [ main ]  # Quelles branches ?
+    branches: [ main ]
   pull_request:
-    branches: [ main ]  # Vers quelle branche ?
+    branches: [ main ]
 
 jobs:
   build-linux:
@@ -23,7 +23,6 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
     - name: Install allure
       run: npm install -g allure-commandline
     - name: Install Python dependencies
