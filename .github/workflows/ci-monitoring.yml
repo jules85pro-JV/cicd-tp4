@@ -36,7 +36,7 @@ jobs:
       run: |
         source venv/bin/activate 
         pip install pytest
-    - name : set Pytest as avauilable command
+    - name : set Pytest as available command
       run: |
         echo "source venv/bin/activate" >> $GITHUB_ENV
     - name: Generate Allure report
