@@ -16,21 +16,31 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: 3.12
+
     - name: Use Node.js 25.x
       uses: actions/setup-node@v4
       with:
         node-version: 25.x
+
     - name: Install allure
       run: npm install -g allure-commandline
+
     - name: Install Python dependencies
-      run: python -m venv venv
+      run: |
+        python -m venv venv
+        source venv/bin/activate 
+        pip install -r requirements.txt
+
     - name: Run tests with monitoring
       run: |
         source venv/bin/activate  # Windows: venv\Scripts\activate
         npm run test:monitoring
+
     - name: Generate Allure report
       run: |
-        allure generate ./allure-results --clean -o ./allure-report
+        pytest tests/ -v --alluredir=reports
+        allure generate reports --clean -o allure-report
+
     - name: Upload Allure report artifact
       uses: actions/upload-artifact@v4
       with:
